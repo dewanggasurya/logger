@@ -39,11 +39,10 @@ func SetLogger(logger Logger) {
 
 // Default logger
 func Default() Logger {
-	t, _ := ParseTemplate(defaultTemplate)
 	return &Base{
 		outLevel:   InfoLevel,
-		out:        os.Stdout,
-		template:   t,
+		out:        os.Stderr,
+		template:   DefaultTemplate(),
 		timeFormat: time.RFC3339,
 	}
 }
@@ -54,50 +53,50 @@ func (b *Base) ParseLevel(level string) Level {
 }
 
 // SetPrefix func
-func (b *Base) SetPrefix(prefix string) {
+func (b *Base) SetPrefix(prefix string) Logger {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 
 	b.prefix = prefix
+	return b
 }
 
 // SetLevel func
-func (b *Base) SetLevel(level Level) {
+func (b *Base) SetLevel(level Level) Logger {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 
 	b.outLevel = level
+	return b
 }
 
 // SetOutput func
-func (b *Base) SetOutput(w io.Writer) {
+func (b *Base) SetOutput(w io.Writer) Logger {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 
 	b.out = w
 	b.isDiscard = w == io.Discard
+	return b
 }
 
 // SetTemplate func
-func (b *Base) SetTemplate(template string) error {
+func (b *Base) SetTemplate(template Template) Logger {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 
-	t, err := ParseTemplate(template)
-	if err != nil {
-		return err
-	}
-
-	b.template = t
-	return nil
+	b.template = template
+	return b
 }
 
 // SetTemplateFormatter func
-func (b *Base) SetTemplateFormatter(fn func(Log) string) {
+func (b *Base) SetTemplateFormatter(fn func(Log) string) Logger {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 
 	b.templateFormatterFn = fn
+
+	return b
 }
 
 // Write func
@@ -140,7 +139,7 @@ func (b *Base) Write(level Level, callDepth int, message string) error {
 	if b.template.Has(levelKey) {
 		levelLabel := label[level]
 
-		keyMap[levelKey] = levelLabel
+		keyMap[levelKey] = fmt.Sprintf("%-10s", levelLabel)
 		logData.LevelLabel = levelLabel
 		logData.Level = level
 	}
@@ -268,28 +267,28 @@ func (b *Base) Panicf(f string, v ...interface{}) {
 }
 
 // SetPrefix func
-func SetPrefix(prefix string) {
-	base.SetPrefix(prefix)
+func SetPrefix(prefix string) Logger {
+	return base.SetPrefix(prefix)
 }
 
 // SetLevel func
-func SetLevel(level Level) {
-	base.SetLevel(level)
+func SetLevel(level Level) Logger {
+	return base.SetLevel(level)
 }
 
 // SetOutput func
-func SetOutput(w io.Writer) {
-	base.SetOutput(w)
+func SetOutput(w io.Writer) Logger {
+	return base.SetOutput(w)
 }
 
 // SetTemplate func
-func SetTemplate(template string) error {
+func SetTemplate(template Template) Logger {
 	return base.SetTemplate(template)
 }
 
 // SetTemplateFormatter func
-func SetTemplateFormatter(fn func(Log) string) {
-	base.SetTemplateFormatter(fn)
+func SetTemplateFormatter(fn func(Log) string) Logger {
+	return base.SetTemplateFormatter(fn)
 }
 
 // Write func

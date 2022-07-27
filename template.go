@@ -12,6 +12,7 @@ const (
 	levelKey        = "${level}"
 	prefixKey       = "${prefix}"
 	defaultTemplate = "${time} ${level}\t${message}\n"
+	verboseTemplate = "${time} ${level}\t${message}\n\t${caller_short}\n"
 )
 
 var (
@@ -19,8 +20,15 @@ var (
 )
 
 // DefaultTemplate for log
-func DefaultTemplate() string {
-	return defaultTemplate
+func DefaultTemplate() Template {
+	template, _ := ParseTemplate(defaultTemplate)
+	return template
+}
+
+// VerboseTemplate for log
+func VerboseTemplate() Template {
+	template, _ := ParseTemplate(verboseTemplate)
+	return template
 }
 
 // Template struct
@@ -39,9 +47,6 @@ func ParseTemplate(text string) (Template, error) {
 
 	for _, key := range templateKeys {
 		t.keymap[key] = strings.Contains(text, key)
-		// if key == messageKey && !t.keymap[key] {
-		// 	return t, fmt.Errorf("Template should contains %s", messageKey)
-		// }
 	}
 
 	return t, nil

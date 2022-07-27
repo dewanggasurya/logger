@@ -64,14 +64,14 @@ type Log struct {
 
 // Logger interface
 type Logger interface {
-	SetPrefix(prefix string)
+	SetPrefix(prefix string) Logger
 	// SetLevel set minimum output log level.
 	// The following level are based on its rank, from low to high
 	// [Debug, Warning, Info, Error, Fatal, Panic]
-	SetLevel(Level)
-	SetOutput(io.Writer)
-	SetTemplate(string) error
-	SetTemplateFormatter(fn func(Log) string)
+	SetLevel(Level) Logger
+	SetOutput(io.Writer) Logger
+	SetTemplate(Template) Logger
+	SetTemplateFormatter(fn func(Log) string) Logger
 	ParseLevel(level string) Level
 	Write(level Level, calldepth int, message string) error
 	Debug(...interface{})

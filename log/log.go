@@ -7,28 +7,28 @@ import (
 )
 
 // SetPrefix func
-func SetPrefix(prefix string) {
-	logger.SetPrefix(prefix)
+func SetPrefix(prefix string) logger.Logger {
+	return logger.SetPrefix(prefix)
 }
 
 // SetLevel func
-func SetLevel(level logger.Level) {
-	logger.SetLevel(level)
+func SetLevel(level logger.Level) logger.Logger {
+	return logger.SetLevel(level)
 }
 
 // SetOutput func
-func SetOutput(w io.Writer) {
-	logger.SetOutput(w)
+func SetOutput(w io.Writer) logger.Logger {
+	return logger.SetOutput(w)
 }
 
 // SetTemplate func
-func SetTemplate(template string) error {
+func SetTemplate(template logger.Template) logger.Logger {
 	return logger.SetTemplate(template)
 }
 
 // SetTemplateFormatter func
-func SetTemplateFormatter(fn func(logger.Log) string) {
-	logger.SetTemplateFormatter(fn)
+func SetTemplateFormatter(fn func(logger.Log) string) logger.Logger {
+	return logger.SetTemplateFormatter(fn)
 }
 
 // Write func
