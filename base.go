@@ -139,7 +139,7 @@ func (b *Base) Write(level Level, callDepth int, message string) error {
 	if b.template.Has(levelKey) {
 		levelLabel := label[level]
 
-		keyMap[levelKey] = fmt.Sprintf("%-10s", levelLabel)
+		keyMap[levelKey] = fmt.Sprintf("%-7s", levelLabel)
 		logData.LevelLabel = levelLabel
 		logData.Level = level
 	}

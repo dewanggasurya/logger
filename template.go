@@ -12,7 +12,7 @@ const (
 	levelKey        = "${level}"
 	prefixKey       = "${prefix}"
 	defaultTemplate = "${time} ${level} ${message}\n"
-	verboseTemplate = "${time} ${level} ${message}\n\t${caller_short}\n"
+	verboseTemplate = "${time} ${level} ${message} [${caller_short}]"
 )
 
 var (

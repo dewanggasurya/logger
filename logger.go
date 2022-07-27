@@ -26,7 +26,7 @@ var (
 	levelMap = map[string]Level{}
 	label    = map[Level]string{
 		DebugLevel:   "DEBUG",
-		WarningLevel: "WARNING",
+		WarningLevel: "WARN",
 		InfoLevel:    "INFO",
 		ErrorLevel:   "ERROR",
 		FatalLevel:   "FATAL",
