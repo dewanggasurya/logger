@@ -38,90 +38,90 @@ func Write(level logger.Level, callDepth int, message string) error {
 
 // Debug func
 func Debug(v ...interface{}) {
-	logger.Debug(v)
+	logger.Debug(v...)
 }
 
 // Debugln func
 func Debugln(v ...interface{}) {
-	logger.Debugln(v)
+	logger.Debugln(v...)
 }
 
 // Debugf func
 func Debugf(f string, v ...interface{}) {
-	logger.Debugf(f, v)
+	logger.Debugf(f, v...)
 }
 
 // Warning func
 func Warning(v ...interface{}) {
-	logger.Warning(v)
+	logger.Warning(v...)
 }
 
 // Warningln func
 func Warningln(v ...interface{}) {
-	logger.Warningln(v)
+	logger.Warningln(v...)
 }
 
 // Warningf func
 func Warningf(f string, v ...interface{}) {
-	logger.Warningf(f, v)
+	logger.Warningf(f, v...)
 }
 
 // Info func
 func Info(v ...interface{}) {
-	logger.Info(v)
+	logger.Info(v...)
 }
 
 // Infoln func
 func Infoln(v ...interface{}) {
-	logger.Infoln(v)
+	logger.Infoln(v...)
 }
 
 // Infof func
 func Infof(f string, v ...interface{}) {
-	logger.Infof(f, v)
+	logger.Infof(f, v...)
 }
 
 // Error func
 func Error(v ...interface{}) {
-	logger.Error(v)
+	logger.Error(v...)
 }
 
 // Errorln func
 func Errorln(v ...interface{}) {
-	logger.Errorln(v)
+	logger.Errorln(v...)
 }
 
 // Errorf func
 func Errorf(f string, v ...interface{}) {
-	logger.Errorf(f, v)
+	logger.Errorf(f, v...)
 }
 
 // Fatal func
 func Fatal(v ...interface{}) {
-	logger.Fatal(v)
+	logger.Fatal(v...)
 }
 
 // Fatalln func
 func Fatalln(v ...interface{}) {
-	logger.Fatalln(v)
+	logger.Fatalln(v...)
 }
 
 // Fatalf func
 func Fatalf(f string, v ...interface{}) {
-	logger.Fatalf(f, v)
+	logger.Fatalf(f, v...)
 }
 
 // Panic func
 func Panic(v ...interface{}) {
-	logger.Panic(v)
+	logger.Panic(v...)
 }
 
 // Panicln func
 func Panicln(v ...interface{}) {
-	logger.Panicln(v)
+	logger.Panicln(v...)
 }
 
 // Panicf func
 func Panicf(f string, v ...interface{}) {
-	logger.Panicf(f, v)
+	logger.Panicf(f, v...)
 }

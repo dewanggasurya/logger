@@ -11,8 +11,8 @@ const (
 	callerShortKey  = "${caller_short}"
 	levelKey        = "${level}"
 	prefixKey       = "${prefix}"
-	defaultTemplate = "${time} ${level}\t${message}\n"
-	verboseTemplate = "${time} ${level}\t${message}\n\t${caller_short}\n"
+	defaultTemplate = "${time} ${level} ${message}\n"
+	verboseTemplate = "${time} ${level} ${message}\n\t${caller_short}\n"
 )
 
 var (
