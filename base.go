@@ -298,90 +298,90 @@ func Write(level Level, callDepth int, message string) error {
 
 // Debug func
 func Debug(v ...interface{}) {
-	base.Debug(v)
+	base.Debug(v...)
 }
 
 // Debugln func
 func Debugln(v ...interface{}) {
-	base.Debugln(v)
+	base.Debugln(v...)
 }
 
 // Debugf func
 func Debugf(f string, v ...interface{}) {
-	base.Debugf(f, v)
+	base.Debugf(f, v...)
 }
 
 // Warning func
 func Warning(v ...interface{}) {
-	base.Warning(v)
+	base.Warning(v...)
 }
 
 // Warningln func
 func Warningln(v ...interface{}) {
-	base.Warningln(v)
+	base.Warningln(v...)
 }
 
 // Warningf func
 func Warningf(f string, v ...interface{}) {
-	base.Warningf(f, v)
+	base.Warningf(f, v...)
 }
 
 // Info func
 func Info(v ...interface{}) {
-	base.Info(v)
+	base.Info(v...)
 }
 
 // Infoln func
 func Infoln(v ...interface{}) {
-	base.Infoln(v)
+	base.Infoln(v...)
 }
 
 // Infof func
 func Infof(f string, v ...interface{}) {
-	base.Infof(f, v)
+	base.Infof(f, v...)
 }
 
 // Error func
 func Error(v ...interface{}) {
-	base.Error(v)
+	base.Error(v...)
 }
 
 // Errorln func
 func Errorln(v ...interface{}) {
-	base.Errorln(v)
+	base.Errorln(v...)
 }
 
 // Errorf func
 func Errorf(f string, v ...interface{}) {
-	base.Errorf(f, v)
+	base.Errorf(f, v...)
 }
 
 // Fatal func
 func Fatal(v ...interface{}) {
-	base.Fatal(v)
+	base.Fatal(v...)
 }
 
 // Fatalln func
 func Fatalln(v ...interface{}) {
-	base.Fatalln(v)
+	base.Fatalln(v...)
 }
 
 // Fatalf func
 func Fatalf(f string, v ...interface{}) {
-	base.Fatalf(f, v)
+	base.Fatalf(f, v...)
 }
 
 // Panic func
 func Panic(v ...interface{}) {
-	base.Panic(v)
+	base.Panic(v...)
 }
 
 // Panicln func
 func Panicln(v ...interface{}) {
-	base.Panicln(v)
+	base.Panicln(v...)
 }
 
 // Panicf func
 func Panicf(f string, v ...interface{}) {
-	base.Panicf(f, v)
+	base.Panicf(f, v...)
 }
