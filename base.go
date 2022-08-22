@@ -43,7 +43,7 @@ func Default() Logger {
 		outLevel:   InfoLevel,
 		out:        os.Stderr,
 		template:   DefaultTemplate(),
-		timeFormat: time.RFC3339,
+		timeFormat: "2006-01-02 15:04:05 MST",
 	}
 }
 
@@ -139,7 +139,7 @@ func (b *Base) Write(level Level, callDepth int, message string) error {
 	if b.template.Has(levelKey) {
 		levelLabel := label[level]
 
-		keyMap[levelKey] = fmt.Sprintf("%-7s", levelLabel)
+		keyMap[levelKey] = fmt.Sprintf("%-5s", levelLabel)
 		logData.LevelLabel = levelLabel
 		logData.Level = level
 	}
